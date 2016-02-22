@@ -95,7 +95,22 @@ public class CalculatorTest {
 	@Test
 	public void testGetHistory() {
 		Calculator calculate = new Calculator();
-		assertEquals("", calculate.getHistory());
+		assertEquals("0", calculate.getHistory());
+		
+		calculate.add(15);
+		assertEquals("0 + 15", calculate.getHistory());
+		
+		calculate.divide(3);
+		assertEquals("0 + 15 / 3", calculate.getHistory());
+		
+		calculate.multiply(3);
+		assertEquals("0 + 15 / 3 * 3", calculate.getHistory());
+		
+		calculate.subtract(5);
+		assertEquals("0 + 15 / 3 * 3 - 5", calculate.getHistory());
+		
+		calculate.multiply(7);
+		assertEquals("0 + 15 / 3 * 3 - 5 * 7", calculate.getHistory());
 	}
 
 }
